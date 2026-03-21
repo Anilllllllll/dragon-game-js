@@ -71,7 +71,7 @@ dragon-game-js/
 
 ## 🚀 Deploy
 
-**Netlify / Vercel / GitHub Pages** — drag-and-drop the folder. Zero build required.
+ https://dragon-game-js.vercel.app/
 
 ```bash
 # Local dev server
