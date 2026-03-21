@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="iDragon Adventures — An industry-level endless runner game with 3D perspective, combo scoring, and parallax worlds." />
+  <meta name="theme-color" content="#0a0015" />
+  <meta property="og:title" content="iDragon Adventures" />
+  <meta property="og:description" content="Jump, duck, and survive endless dragon hordes in this premium 3D runner." />
+  <title>iDragon Adventures</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───── MENU SCREEN ───── -->
+  <div id="menuScreen" class="screen active">
+    <div class="menu-bg-particles" id="menuParticles"></div>
+    <div class="menu-content">
+      <div class="logo-wrap">
+        <h1 class="game-title">
+          <span class="fire-text">i</span>Dragon
+          <span class="title-sub">ADVENTURES</span>
+        </h1>
+        <div class="title-glow"></div>
+      </div>
+      <div class="menu-stats">
+        <div class="stat-chip">
+          <span class="stat-label">Best Score</span>
+          <span class="stat-val" id="menuHighScore">0</span>
+        </div>
+      </div>
+      <button class="btn-primary pulse-btn" id="startBtn">
+        <span class="btn-icon">▶</span> Play Now
+      </button>
+      <p class="hint-text">Space / ↑ Jump &nbsp;•&nbsp; ↓ Duck &nbsp;•&nbsp; P Pause</p>
+      <div class="control-chips">
+        <span class="chip">🎮 Keyboard</span>
+        <span class="chip">📱 Touch</span>
+        <span class="chip">🏆 High Score</span>
+        <span class="chip">💥 Particles</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── COUNTDOWN OVERLAY ───── -->
+  <div id="countdownScreen" class="screen">
+    <div class="countdown-number" id="countdownNum">3</div>
+  </div>
+
+  <!-- ───── GAME SCREEN ───── -->
+  <div id="gameScreen" class="screen">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-left">
+        <div class="hud-panel" id="livesPanel">
+          <span class="hud-label">LIVES</span>
+          <div id="livesDisplay"></div>
+        </div>
+        <div class="hud-panel" id="levelPanel">
+          <span class="hud-label">LEVEL</span>
+          <span class="hud-val" id="levelVal">1</span>
+        </div>
+      </div>
+      <div class="hud-center">
+        <div id="comboDisplay" class="combo-display hidden">
+          <span id="comboText">×1 COMBO</span>
+        </div>
+      </div>
+      <div class="hud-right">
+        <div class="hud-panel" id="scorePanel">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-val" id="scoreVal">0</span>
+        </div>
+        <div class="hud-panel" id="highScorePanel">
+          <span class="hud-label">BEST</span>
+          <span class="hud-val" id="highScoreVal">0</span>
+        </div>
+        <button id="muteBtn" class="icon-btn" title="Toggle Sound" aria-label="Mute">🔊</button>
+        <button id="pauseBtn" class="icon-btn" title="Pause (P)" aria-label="Pause">⏸</button>
+      </div>
+    </div>
+
+    <!-- Mobile Touch Controls -->
+    <div id="mobileControls">
+      <button class="mob-btn" id="mobJumpBtn" aria-label="Jump">↑ JUMP</button>
+      <button class="mob-btn" id="mobDuckBtn" aria-label="Duck">↓ DUCK</button>
+    </div>
+
+    <!-- Damage Flash Overlay -->
+    <div id="flashOverlay"></div>
+  </div>
+
+  <!-- ───── PAUSE SCREEN ───── -->
+  <div id="pauseScreen" class="screen">
+    <div class="overlay-panel">
+      <h2 class="overlay-title">PAUSED</h2>
+      <button class="btn-primary" id="resumeBtn">▶ Resume</button>
+      <button class="btn-secondary" id="pauseRestartBtn">↩ Restart</button>
+      <button class="btn-secondary" id="pauseMenuBtn">⌂ Main Menu</button>
+    </div>
+  </div>
+
+  <!-- ───── GAME OVER SCREEN ───── -->
+  <div id="gameOverScreen" class="screen">
+    <div class="overlay-panel go-panel">
+      <h2 class="overlay-title go-title">GAME OVER</h2>
+      <div class="go-stats">
+        <div class="go-stat">
+          <span class="go-label">Score</span>
+          <span class="go-val" id="goScore">0</span>
+        </div>
+        <div class="go-stat highlight">
+          <span class="go-label">Best</span>
+          <span class="go-val" id="goHighScore">0</span>
+        </div>
+        <div class="go-stat">
+          <span class="go-label">Level</span>
+          <span class="go-val" id="goLevel">1</span>
+        </div>
+        <div class="go-stat">
+          <span class="go-label">Max Combo</span>
+          <span class="go-val" id="goCombo">×1</span>
+        </div>
+      </div>
+      <div id="newHighScoreBadge" class="new-hs-badge hidden">🏆 NEW BEST!</div>
+      <button class="btn-primary pulse-btn" id="restartBtn">↩ Play Again</button>
+      <button class="btn-secondary" id="goMenuBtn">⌂ Main Menu</button>
+    </div>
+  </div>
+
+  <script src="game.js" type="module"></script>
+</body>
+</html>

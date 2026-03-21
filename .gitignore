@@ -1,0 +1,14 @@
+# Node
+node_modules/
+.npm/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Subfolders not part of the game
+dragon-game/
+react-projects/
