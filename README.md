@@ -2,7 +2,7 @@
 
 An industry-level, deploy-ready **endless runner game** built with pure HTML, CSS, and JavaScript — no frameworks, no build step.
 
-![Game Preview](https://raw.githubusercontent.com/Anilllllllll/dragon-game-js/master/bg.png)
+<img width="1919" height="1115" alt="image" src="https://github.com/user-attachments/assets/dfebc59e-bce0-4b76-9a53-f4734da5bfc6" />
 
 ---
 
