@@ -328,6 +328,20 @@ function createPlayer() {
 }
 
 function updatePlayer(dt) {
+  // ── Horizontal movement (forward / backward) ──
+  const moveSpeed = 300; // px/s
+  const movingLeft  = keys['ArrowLeft']  || keys['KeyA'];
+  const movingRight = keys['ArrowRight'] || keys['KeyD'];
+
+  if (movingRight) player.x += moveSpeed * dt;
+  if (movingLeft)  player.x -= moveSpeed * dt;
+
+  // Clamp so dragon stays on screen
+  player.x = Math.max(10, Math.min(W - player.w - 10, player.x));
+
+  // Step timer ticks when moving sideways too (animate legs)
+  if (movingLeft || movingRight) game.stepTimer += dt;
+
   // Gravity
   player.vy += C.GRAVITY * dt;
   player.y  += player.vy * dt;
@@ -357,8 +371,8 @@ function updatePlayer(dt) {
   player.scaleX = lerp(player.scaleX, 1, 0.2);
   player.scaleY = lerp(player.scaleY, 1, 0.2);
 
-  // Running animation step clock
-  if (!player.jumping) {
+  // Running animation step clock (when on ground and not moving sideways it still ticks from auto-run)
+  if (!player.jumping && !movingLeft && !movingRight) {
     game.stepTimer += dt;
   }
   // drawY: on ground use normalH to anchor bottom to GROUND correctly
