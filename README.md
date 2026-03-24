@@ -4,6 +4,9 @@ An industry-level, deploy-ready **endless runner game** built with pure HTML, CS
 
 <img width="1919" height="1115" alt="image" src="https://github.com/user-attachments/assets/dfebc59e-bce0-4b76-9a53-f4734da5bfc6" />
 
+<img width="1919" height="1109" alt="image" src="https://github.com/user-attachments/assets/04e795d3-4f47-4413-8834-43e4d8cc7f92" />
+
+
 ---
 
 ## 🎮 Play Now
